@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>TI Mobile</title>
+  <base href="/"> {{content-for 'head'}}
+  <link rel="shortcut icon" href="http://www.portic.net/fav.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="vendor/primeui/themes/blitzer/theme.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="app/resources/icons/css/font-awesome.min.css" /> -->
+  <link rel="stylesheet" type="text/css" href="vendor/primeui/primeui-ng-all.min.css" />
+   <link rel="stylesheet" type="text/css" href="css/main.css"/>
+   <link rel="stylesheet" type="text/css" href="icons/css/font-awesome.min.css" />
+
+  <!-- Service worker support is disabled by default.
+       Install the worker script and uncomment to enable.
+       Only enable service workers in production.
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/worker.js').catch(function(err) {
+        console.log('Error installing service worker: ', err);
+      });
+    }
+  </script>
+  -->
+</head>
+
+<body>
+  <angular-cli-primeng-app>
+    <div style="width:230px; margin:0 auto; margin-top:20%; text-align:center;">
+      <img src="img/logoPortic.png" style="display:block;"> Loading...
+      <br>
+      <img src="img/cargar.gif" height="50">
+    </div>
+  </angular-cli-primeng-app>
+
+  <script src="vendor/es6-shim/es6-shim.js"></script>
+  <script src="vendor/reflect-metadata/Reflect.js"></script>
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/zone.js/dist/zone.js"></script>
+  <script src="vendor/primeui/primeui-ng-all.min.js"></script>
+
+  <script>
+    System.import('system-config.js').then(function () {
+      System.import('main');
+    }).catch(console.error.bind(console));
+  </script>
+</body>
+
+</html>
