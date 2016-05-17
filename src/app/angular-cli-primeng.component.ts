@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import 'rxjs/Rx';   // Load all features
-// import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { ROUTER_PROVIDERS, Routes, Route, ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+// import { ROUTER_PROVIDERS, Routes, Route, ROUTER_DIRECTIVES } from '@angular/router';
 import {InputText, Button, Menu } from 'primeng/primeng';
 
 import { LorryService } from './lorry/lorry.service';
@@ -13,6 +13,7 @@ import { TrainComponent } from './train/train.component';
 import { Payload } from './payload/payload';
 
 
+//     providers: [LorryService, TrainService, SecurityService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 
 @Component({
     selector: 'angular-cli-primeng-app',
@@ -20,15 +21,15 @@ import { Payload } from './payload/payload';
     directives: [ROUTER_DIRECTIVES, InputText, Button, Menu],
     providers: [LorryService, TrainService, SecurityService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
-// @RouteConfig([
-//     { path: '/lorry', name: 'Lorry', component: LorryComponent, useAsDefault: true },
-//     { path: '/train', name: 'Train', component: TrainComponent }
-// ])
-@Routes([
-    new Route({ path: '/', component: AngularCliPrimengAppComponent }),
-    new Route({ path: '/lorry', component: LorryComponent }),
-    new Route({ path: '/train', component: TrainComponent })
+@RouteConfig([
+    { path: '/lorry', name: 'Lorry', component: LorryComponent, useAsDefault: true },
+    { path: '/train', name: 'Train', component: TrainComponent }
 ])
+// @Routes([
+//         new Route({ path: '/', component: AngularCliPrimengAppComponent }),
+//     new Route({ path: '/train', component: TrainComponent }),
+//     new Route({ path: '/lorry', component: LorryComponent })
+// ])
 export class AngularCliPrimengAppComponent {
     pageTitle: string = 'Gestión de entradas y salidas';
     public menuItems = [
