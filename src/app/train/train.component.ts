@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+// import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ITrainService, ITrain} from './train';
 import {TrainService} from './train.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
 
+//     directives: [ROUTER_DIRECTIVES]
 
 @Component({
-    templateUrl: 'app/train/train.component.html',
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: 'app/train/train.component.html'
 })
 export class TrainComponent implements OnInit {
     trains: ITrain[];

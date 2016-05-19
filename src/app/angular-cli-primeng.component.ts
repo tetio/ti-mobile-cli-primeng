@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import { HTTP_PROVIDERS } from '@angular/http';
-import 'rxjs/Rx';   // Load all features
-import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-// import { ROUTER_PROVIDERS, Routes, Route, ROUTER_DIRECTIVES } from '@angular/router';
-import {InputText, Button, Menu } from 'primeng/primeng';
-
+import { Routes, Route, Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { InputText, Button, Menu } from 'primeng/primeng';
 import { LorryService } from './lorry/lorry.service';
 import { TrainService } from './train/train.service';
 import { SecurityService } from './security/security.service';
@@ -12,24 +8,16 @@ import { LorryComponent } from './lorry/lorry.component';
 import { TrainComponent } from './train/train.component';
 import { Payload } from './payload/payload';
 
-
-//     providers: [LorryService, TrainService, SecurityService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
-
 @Component({
     selector: 'angular-cli-primeng-app',
     templateUrl: 'app/angular-cli-primeng.component.html',
     directives: [ROUTER_DIRECTIVES, InputText, Button, Menu],
-    providers: [LorryService, TrainService, SecurityService, HTTP_PROVIDERS, ROUTER_PROVIDERS]
+    providers: [LorryService, TrainService, SecurityService]
 })
-@RouteConfig([
-    { path: '/lorry', name: 'Lorry', component: LorryComponent, useAsDefault: true },
-    { path: '/train', name: 'Train', component: TrainComponent }
+@Routes([
+    new Route({ path: '/train', component: TrainComponent }),
+    new Route({ path: '/lorry', component: LorryComponent })
 ])
-// @Routes([
-//         new Route({ path: '/', component: AngularCliPrimengAppComponent }),
-//     new Route({ path: '/train', component: TrainComponent }),
-//     new Route({ path: '/lorry', component: LorryComponent })
-// ])
 export class AngularCliPrimengAppComponent {
     pageTitle: string = 'Gestión de entradas y salidas';
     public menuItems = [
@@ -44,7 +32,7 @@ export class AngularCliPrimengAppComponent {
     errorMessage: string;
 
 
-    constructor(private _securityService: SecurityService) { }
+    constructor(private _securityService: SecurityService, private _router: Router) { }
 
     isLoggedIn(): boolean {
         return this.loggedIn;
@@ -76,8 +64,10 @@ export class AngularCliPrimengAppComponent {
                 if (session.codiError >= 0 && session.token) {
                     this.loggedIn = true;
                     this._securityService.session = session;
+                    this._router.navigate(['/lorry']);
                 } else {
                     // TODO avisar que no s'ha autenticat correctament
+                    this._router.navigate(['/']);
                 }
             },
             error => this.errorMessage = error

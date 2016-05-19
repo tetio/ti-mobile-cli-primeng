@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+// import { ROUTER_DIRECTIVES } from '@angular/router';
 import {ILorryMovement, LorryQueryResponse} from './lorryMovement';
 import {LorryService} from './lorry.service';
 import { SecurityService } from '../security/security.service';
@@ -10,7 +10,7 @@ import {Button, Dialog, Dropdown} from 'primeng/primeng';
 
 @Component({
     templateUrl: 'app/lorry/lorry.component.html',
-    directives: [ROUTER_DIRECTIVES, Dropdown, Dialog, Button]
+    directives: [Dropdown, Dialog, Button]
 })
 export class LorryComponent {
     lorryMovements: ILorryMovement[];
