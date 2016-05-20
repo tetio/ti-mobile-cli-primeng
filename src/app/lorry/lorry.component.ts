@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
-// import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {ILorryMovement, LorryQueryResponse} from './lorryMovement';
 import {LorryService} from './lorry.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
-import {Button, Dialog, Dropdown} from 'primeng/primeng';
+import {Button, Dialog, Dropdown, Menu, MenuItem} from 'primeng/primeng';
 
 // templateUrl: 'app/lorry/lorry.component.html',
 
 @Component({
-    templateUrl: 'app/lorry/lorry.component.html',
-    directives: [Dropdown, Dialog, Button]
+    moduleId: module.id,
+    templateUrl: 'lorry.component.html',
+    directives: [ROUTER_DIRECTIVES, Dropdown, Dialog, Button, Menu]
 })
-export class LorryComponent {
+export class LorryComponent implements OnInit {
     lorryMovements: ILorryMovement[];
     notFoundMessage: boolean = false;
     errorMessage: string;
@@ -23,7 +24,7 @@ export class LorryComponent {
     equipId: string;
     displayConfirmation: boolean = false;
 
-
+    private menuItems: MenuItem[];
     private values = [
         {
             value: '1',
@@ -36,6 +37,10 @@ export class LorryComponent {
     ];
 
     constructor(private _lorryService: LorryService, private _securityService: SecurityService) { }
+
+    ngOnInit() {
+
+    }
 
     search() {
         this.lorryMovements = [];

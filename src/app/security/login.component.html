@@ -1,0 +1,13 @@
+<section class="login" id="login" *ngIf(!isLoggedIn())>
+	<img src="img/loginIcon.png" class="loginIcon">
+	<form>
+		<input type="text" pInputText [(ngModel)]="username" class="block" placeholder="Usuario" onfocus="this.placeholder = ''"
+			onblur="this.placeholder = 'Usuario'" />
+		<input type="password" pInputText [(ngModel)]="password" class="block" placeholder="Contraseña" onfocus="this.placeholder = ''"
+			onblur="this.placeholder = 'Contraseña'" />
+		<button pButton type="button" label="ENTRAR" (click)="login()"></button>
+	</form>
+</section>
+
+
+

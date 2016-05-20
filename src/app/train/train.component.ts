@@ -8,7 +8,8 @@ import { Payload } from '../payload/payload';
 //     directives: [ROUTER_DIRECTIVES]
 
 @Component({
-    templateUrl: 'app/train/train.component.html'
+    moduleId: module.id,
+    templateUrl: 'train.component.html'
 })
 export class TrainComponent implements OnInit {
     trains: ITrain[];

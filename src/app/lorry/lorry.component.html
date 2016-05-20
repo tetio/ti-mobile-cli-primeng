@@ -1,3 +1,16 @@
+<header class="mainNav" >
+    <nav>
+			<a data-icon="fa-truck" [routerLink]="['lorry']"><span>CAMIÓN</span></a>
+			<a data-icon="fa-train" [routerLink]="['train']"    ><span>TREN</span></a>
+			<a data-icon="fa-user-times">SALIR</a>
+		</nav>
+
+	<button #btn type="button" pButton icon="fa fa-reorder" class="btnHamMy"></button>
+	<div class="loginUser">
+		<p class="userParraf">User:</p>
+		<p class="userParraf">{{_securityService.session.nomUsuari}}</p>
+	</div>
+</header>
 <!--div class="tab-content">
     <section class="section_aplication tab-pane fade in active" id="camion"-->
 

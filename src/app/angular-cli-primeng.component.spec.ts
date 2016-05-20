@@ -15,8 +15,8 @@ describe('App: AngularCliPrimeng', () => {
       expect(app).toBeTruthy();
     }));
 
-  it('should have default mode as lorry, so lorryMode must be \'true\'',
-    inject([AngularCliPrimengAppComponent], (app: AngularCliPrimengAppComponent) => {
-      expect(app.lorryMode).toEqual(true);
-    }));
+  // it('should have default mode as lorry, so lorryMode must be \'true\'',
+  //   inject([AngularCliPrimengAppComponent], (app: AngularCliPrimengAppComponent) => {
+  //     expect(app.lorryMode).toEqual(true);
+  //   }));
 });
